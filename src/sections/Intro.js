@@ -1,28 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import Navigation from "../components/Navigation";
 
-const navList = [
-  {
-    name: "Главная",
-    to: "#",
-  },
-  {
-    name: "Обо мне",
-    to: "#",
-  },
-  {
-    name: "Проекты",
-    to: "#",
-  },
-  {
-    name: "Связаться",
-    to: "#",
-  },
-];
-
 const Intro = () => {
+  const sectionIntroRef = useRef(null);
+
   return (
-    <section className="section-intro">
+    <section className="section-intro" ref={sectionIntroRef}>
       <div className="lines">
         <div className="line" />
         <div className="line" />
@@ -44,17 +27,7 @@ const Intro = () => {
         </button>
       </div>
 
-      <nav className="navigation">
-        <Navigation desktop={true} navList={navList} />
-
-        <button className="hamburger hamburger--collapse" type="button">
-          <span className="hamburger-box">
-            <span className="hamburger-inner" />
-          </span>
-        </button>
-
-        <Navigation desktop={false} navList={navList} />
-      </nav>
+      <Navigation sectionIntroRef={sectionIntroRef} />
     </section>
   );
 };
