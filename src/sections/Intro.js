@@ -33,7 +33,7 @@ const Intro = () => {
         <div className="text">
           <div className="text__hello-name">
             <div className="hello">Привет, меня зовут&nbsp;</div>
-            <div className="name">&lt; Максим Давыдов &sol;&gt;</div>
+            <div className="name">&lt; Максим Давыдов /&gt;</div>
           </div>
           <div>Я Full-Stack Web разработчик</div>
         </div>

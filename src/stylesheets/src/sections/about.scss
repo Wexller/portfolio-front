@@ -15,10 +15,14 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
     flex-wrap: wrap;
 
     &__item {
-      flex: 0 0 susy-span(4 of 8);
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: susy-span(4 of 8);
 
       @include screen-large-up {
-        flex: 0 0 susy-span(3 of 12);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: susy-span(3 of 12);
       }
 
       display: flex;
@@ -95,10 +99,14 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
     flex-wrap: wrap;
 
     .about-introduction {
-      flex: 0 0 susy-span(4 of 4);
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: susy-span(4 of 4);
 
       @include screen-medium-up {
-        flex: 0 0 susy-span(4 of 8);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: susy-span(4 of 8);
       }
 
       text-align: center;
@@ -130,11 +138,15 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
     }
 
     .about-technologies {
-      flex: 0 0 susy-span(4 of 4);
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: susy-span(4 of 4);
       margin-top: 3rem;
 
       @include screen-medium-up {
-        flex: 0 0 susy-span(4 of 8);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: susy-span(4 of 8);
         margin-top: 0;
       }
 

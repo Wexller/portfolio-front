@@ -6,7 +6,9 @@
   background-color: $light-gray;
 
   .project-categories {
-    flex: 0 0 susy-span(4 of 4);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: susy-span(4 of 4);
 
     display: flex;
     justify-content: center;
@@ -41,14 +43,20 @@
     flex-wrap: wrap;
 
     .project-item {
-      flex: 0 0 susy-span(4 of 4 set-gutters 0);
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: susy-span(4 of 4 set-gutters 0);
 
       @include screen-medium-up {
-        flex: 0 0 susy-span(4 of 8 set-gutters 0);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: susy-span(4 of 8 set-gutters 0);
       }
 
       @include screen-large-up {
-        flex: 0 0 susy-span(4 of 12 set-gutters 0);
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: susy-span(4 of 12 set-gutters 0);
       }
 
       height: 300px;
