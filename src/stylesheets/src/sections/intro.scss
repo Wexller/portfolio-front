@@ -87,6 +87,7 @@
 
         .nav-item__link {
           color: $light-gray;
+          cursor: pointer;
 
           text-transform: uppercase;
           text-decoration: none;
@@ -150,6 +151,7 @@
             text-transform: uppercase;
             text-decoration: none;
             transition: color .3s ease;
+            cursor: pointer;
 
             &:hover,
             &.active {

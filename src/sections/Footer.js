@@ -1,11 +1,18 @@
 import React from "react";
+import { Link } from "react-scroll";
+import { SMOOTH_SCROLL_DURATION } from "../constants";
 
 const Footer = () => {
   return (
     <footer>
-      <button className="button-scroll-top">
+      <Link
+        className="button-scroll-top"
+        to="intro"
+        smooth={true}
+        duration={SMOOTH_SCROLL_DURATION}
+      >
         <span className="mdi mdi-chevron-double-up" />
-      </button>
+      </Link>
 
       <div className="social-block">
         <a

@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
+import { Link, Element } from "react-scroll";
 import Navigation from "../components/Navigation";
+import { SMOOTH_SCROLL_DURATION } from "../constants";
 
 const Intro = () => {
-  const sectionIntroRef = useRef(null);
+  const introRef = useRef(null);
 
   return (
-    <section className="section-intro" ref={sectionIntroRef}>
+    <Element name="intro" className="section-intro" ref={introRef}>
       <div className="lines">
         <div className="line" />
         <div className="line" />
@@ -21,14 +23,19 @@ const Intro = () => {
           <div>Я Full-Stack Web разработчик</div>
         </div>
 
-        <button className="base-button button-more">
+        <Link
+          to="about"
+          smooth={true}
+          duration={SMOOTH_SCROLL_DURATION}
+          className="base-button button-more"
+        >
           <span>Подробнее</span>
           <span className="mdi mdi-arrow-right" />
-        </button>
+        </Link>
       </div>
 
-      <Navigation sectionIntroRef={sectionIntroRef} />
-    </section>
+      <Navigation introRef={introRef} />
+    </Element>
   );
 };
 

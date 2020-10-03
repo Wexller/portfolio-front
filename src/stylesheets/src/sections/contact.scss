@@ -1,6 +1,11 @@
 @import "../colors";
 @import "../placeholders/typography";
 
+.additional-block {
+  height: 60px;
+  background-color: $light-gray;
+}
+
 .section-contact {
   @extend %section-padding;
   background-color: #252934;
@@ -14,14 +19,17 @@
   }
 
   .form-info {
+    @extend %text-semi-bold;
+
+    margin-top: 3rem;
     text-align: center;
     color: $sandy-brown;
-    @extend %text-semi-bold;
   }
 
   .form-block {
     justify-content: center;
-    padding: 1rem 0;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 
     form {
       flex-grow: 0;

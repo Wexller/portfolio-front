@@ -1,34 +1,32 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavigationList from "./NavigationList";
 
 const navList = [
   {
-    name: "Главная",
+    title: "Главная",
     to: "#",
+    name: "intro",
   },
   {
-    name: "Обо мне",
+    title: "Обо мне",
     to: "#",
+    name: "about",
   },
   {
-    name: "Проекты",
+    title: "Проекты",
     to: "#",
+    name: "projects",
   },
   {
-    name: "Связаться",
+    title: "Связаться",
     to: "#",
+    name: "contact",
   },
 ];
 
-const Navigation = ({ sectionIntroRef }) => {
+const Navigation = ({ introRef }) => {
   const [fixed, setFixed] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleScroll = () => {
-    if (sectionIntroRef.current) {
-      setFixed(sectionIntroRef.current.getBoundingClientRect().bottom <= 0);
-    }
-  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -38,13 +36,34 @@ const Navigation = ({ sectionIntroRef }) => {
     };
   }, []);
 
+  const handleScroll = () => {
+    const current = introRef.current;
+
+    if (
+      current &&
+      current["childBindings"] &&
+      current["childBindings"]["domNode"]
+    ) {
+      const { bottom } = current["childBindings"][
+        "domNode"
+      ].getBoundingClientRect();
+      const offset = 10;
+
+      setFixed(bottom - offset <= 0);
+    }
+  };
+
   function hamburgerClickHandler() {
     setIsMenuOpen((isMenuOpen) => !isMenuOpen);
   }
 
+  function linkClickHandler() {
+    if (isMenuOpen) setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+  }
+
   return (
     <nav className={`navigation${fixed ? " fixed" : ""}`}>
-      <NavigationList desktop={true} navList={navList} />
+      <NavigationList isDesktop={true} navList={navList} />
 
       <button
         className={`hamburger hamburger--collapse${
@@ -59,9 +78,10 @@ const Navigation = ({ sectionIntroRef }) => {
       </button>
 
       <NavigationList
-        desktop={false}
+        isDesktop={false}
         navList={navList}
         isMenuOpen={isMenuOpen}
+        linkClickHandler={linkClickHandler}
       />
     </nav>
   );

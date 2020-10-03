@@ -1,10 +1,11 @@
 import React from "react";
+import { Element } from "react-scroll";
 import Technologies from "../components/Technologies";
 import Advantages from "../components/Advantages";
 
 const About = () => {
   return (
-    <section className="section-about">
+    <Element name="about" className="section-about">
       <div className="section-title">Обо мне</div>
 
       <Advantages />
@@ -42,7 +43,7 @@ const About = () => {
           <Technologies />
         </div>
       </div>
-    </section>
+    </Element>
   );
 };
 

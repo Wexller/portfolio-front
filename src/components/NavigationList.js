@@ -1,18 +1,33 @@
 import React from "react";
+import { Link } from "react-scroll";
+import { SMOOTH_SCROLL_DURATION } from "../constants";
 
-const NavigationList = ({ desktop, navList, isMenuOpen }) => {
+const NavigationList = ({
+  isDesktop,
+  navList,
+  isMenuOpen,
+  linkClickHandler,
+}) => {
   return (
     <div
       className={
-        desktop ? "grid" : `mobile-navigation${isMenuOpen ? " active" : ""}`
+        isDesktop ? "grid" : `mobile-navigation${isMenuOpen ? " active" : ""}`
       }
     >
-      <ul className={desktop ? "desktop-nav-list" : "mobile-nav-list"}>
+      <ul className={isDesktop ? "desktop-nav-list" : "mobile-nav-list"}>
         {navList.map((item, idx) => (
           <li className="nav-item" key={idx}>
-            <a className="nav-item__link" href={item.to}>
-              {item.name}
-            </a>
+            <Link
+              className="nav-item__link"
+              activeClass="active"
+              to={item.name}
+              spy={true}
+              smooth={true}
+              duration={SMOOTH_SCROLL_DURATION}
+              onClick={linkClickHandler}
+            >
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>
