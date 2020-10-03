@@ -1,0 +1,43 @@
+@import "../functions/linear-interpolation";
+
+/// Generates the linear interpolated size values through the multiple breakpoints.
+/// @param {List} $properties - A list of css properties names (or just one name).
+/// @param {Map} $map - A sass `Map` of viewport unit and size value pairs.
+/// @example
+///   @include poly-fluid-sizing('font-size', (576px: 22px, 768px: 24px, 992px: 34px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@mixin poly-fluid-sizing($properties, $map) {
+  // Get the number of provided breakpoints
+  $length: length(map-keys($map));
+
+  $keys: map-keys($map);
+
+  // Minimum size
+  @include print-properties($properties, map-get($map, nth($keys, 1)));
+
+  // Interpolated size through breakpoints
+  @for $i from 1 through ($length - 1) {
+    @media (min-width:nth($keys,$i)) {
+      $value1: map-get($map, nth($keys,$i));
+      $value2: map-get($map, nth($keys,($i + 1)));
+      // If values are not equal, perform linear interpolation
+      @if ($value1 != $value2) {
+        @include print-properties($properties,
+          linear-interpolation((nth($keys,$i): $value1, nth($keys,($i+1)): $value2)));
+      } @else {
+        @include print-properties($properties, $value1);
+      }
+    }
+  }
+
+  // Maxmimum size
+  @media (min-width:nth($keys,$length)) {
+    @include print-properties($properties, map-get($map, nth($keys,$length)));
+  }
+}
+
+@mixin print-properties($properties, $value) {
+  @each $property in $properties {
+    #{$property}: $value;
+  }
+}

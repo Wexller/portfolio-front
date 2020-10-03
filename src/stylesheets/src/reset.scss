@@ -1,0 +1,59 @@
+@import "./mixins";
+@import "./variables";
+@import "./colors";
+$mdi-font-path: '~@mdi/font/fonts';
+@import "~@mdi/font/scss/materialdesignicons";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+html {
+  @include poly-fluid-sizing('font-size', $font-size-interpolation);
+}
+
+body {
+  line-height: 1;
+  font-family: 'Raleway', Arial, sans-serif;
+  color: $black;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #fff;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, a, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+  // Remove dotted outline for buttons in FireFox:
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.scroll-disabled {
+  overflow: hidden;
+}
+
+.scroll-enabled {
+  overflow: visible;
+}

@@ -1,0 +1,254 @@
+@import "../colors";
+@import "../placeholders/typography";
+@import "~mathsass/dist/functions/sqrt";
+
+$hexagonHeight: 3rem;
+$rootOf3: sqrt(3);
+$hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
+
+.section-about {
+  @extend %section-padding;
+  background-color: #fff;
+
+  .about-advantages {
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 0 0 susy-span(4 of 8);
+
+      @include screen-large-up {
+        flex: 0 0 susy-span(3 of 12);
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__hexagon {
+      margin: 2.5rem 0;
+      background-color: $blue;
+      width: $hexagonWidth;
+      height: $hexagonHeight;
+
+      position: relative;
+      z-index: 0;
+
+      transition: transform .3s linear;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        background-color: $blue;
+      }
+
+      &:before {
+        transform: rotate(60deg);
+      }
+
+      &:after {
+        transform: rotate(-60deg);
+      }
+
+      .mdi {
+        @extend %heading-h1;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $light-gray;
+      }
+    }
+
+    &__title {
+      @extend %heading-h3;
+      @extend %text-bold;
+
+      color: $dark-gray;
+      margin-bottom: 1rem;
+
+      text-align: center;
+    }
+
+    &__description {
+      @extend %text-smaller;
+
+      text-align: center;
+      color: $dark-gray;
+    }
+  }
+
+  .about-description {
+    flex-wrap: wrap;
+
+    .about-introduction {
+      flex: 0 0 susy-span(4 of 4);
+
+      @include screen-medium-up {
+        flex: 0 0 susy-span(4 of 8);
+      }
+
+      text-align: center;
+      color: $dark-gray;
+
+      &__photo {
+        margin-bottom: 1.5rem;
+      }
+
+      &__title {
+        @extend %heading-h3;
+        @extend %text-bold;
+
+        margin-bottom: 1rem;
+      }
+
+      &__description {
+        @extend %text-smaller;
+
+        .important {
+          @extend %text-bold;
+        }
+
+        a {
+          color: #009ada;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .about-technologies {
+      flex: 0 0 susy-span(4 of 4);
+      margin-top: 3rem;
+
+      @include screen-medium-up {
+        flex: 0 0 susy-span(4 of 8);
+        margin-top: 0;
+      }
+
+      display: flex;
+      align-items: center;
+
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      &__item {
+        @extend %text-semi-bold;
+        @extend %text-larger;
+
+        position: relative;
+        padding: .5rem .8rem;
+        margin: .5rem;
+        background-color: $light-gray;
+        color: #fff;
+
+        transition: transform .3s linear, box-shadow .3s ease;
+
+        &:hover {
+          box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+          transform: scale(1.1);
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 2px;
+          bottom: 2px;
+          left: 2px;
+          right: 2px;
+
+          border: solid 2px rgba(255, 255, 255, .2);
+        }
+
+        &.html-orange {
+          background-color: #e54c21;
+          color: #fff;
+        }
+
+        &.css-blue {
+          background-color: #254bdd;
+          color: #fff;
+        }
+
+        &.sass-purple {
+          background-color: #cd6799;
+        }
+
+        &.js-yellow {
+          background-color: #efd81d;
+          color: #000;
+        }
+
+        &.nodejs-green {
+          background-color: #88c249;
+          color: #3e3f34;
+        }
+
+        &.webpack-blue {
+          background-color: #61a1df;
+          color: #212121;
+          .mdi {
+            color: #acdcf4;
+          }
+        }
+
+        &.parcel-brown {
+          background-color: #bd8e62;
+          color: #b63a3f;
+        }
+
+        &.vue-green {
+          background-color: #3fb27f;
+          color: #33475b;
+        }
+
+        &.react-blue {
+          background-color: #212121;
+          color: #6ec6dc;
+        }
+
+        &.git-orange {
+          background-color: #3b2c00;
+          color: #e94d32;
+        }
+
+        &.linux-black {
+          color: #ffbc00;
+          background-color: #000;
+        }
+
+        &.jquery-blue {
+          background-color: #1b75bb;
+        }
+
+        &.php-blue {
+          color: #20222e;
+          background-color: #7377ad;
+        }
+
+        &.bitrix-red {
+          background-color: #c7042c;
+        }
+
+        &.ruby-red {
+          background-color: #ed4545;
+        }
+      }
+    }
+  }
+}

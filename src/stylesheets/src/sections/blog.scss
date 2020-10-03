@@ -1,0 +1,62 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.section-blog {
+  @extend %section-padding;
+  background-color: #fff;
+
+  .blog-list {
+    flex-wrap: wrap;
+
+    &:hover {
+      .blog-item {
+        opacity: .5;
+      }
+    }
+
+    .blog-item {
+      flex: 0 0 susy-span(4 of 4);
+      text-decoration: none;
+      cursor: pointer;
+      color: $dark-gray;
+      margin-bottom: 2rem;
+
+      transition: opacity .3s ease;
+
+      @include screen-medium-up {
+        flex: 0 0 susy-span(4 of 8);
+      }
+
+      @include screen-large-up {
+        flex: 0 0 susy-span(3 of 12);
+      }
+
+      .blog-image {
+        background-color: #2a9d8f;
+        height: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .blog-title {
+        @extend %heading-h3;
+        @extend %text-bold;
+
+        transition: color .3s ease;
+      }
+
+      .blog-date {
+        @extend %text-smaller;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      &:hover {
+        opacity: 1;
+
+        .blog-title {
+          color: $bronze;
+        }
+      }
+    }
+  }
+}

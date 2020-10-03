@@ -1,0 +1,59 @@
+@import "~susy/sass/susy-prefix";
+
+/// The design system maximal "small" screen size (mobile phones).
+$screen-small-max: 591px;
+
+/// The design system minimal "medium" screen size (tablets, netbooks).
+$screen-medium-min: $screen-small-max + 1px;
+
+/// The design system maximal "medium" screen size (tablets, netbooks).
+$screen-medium-max: 900px;
+
+/// The design system minimal "large" screen size (wide desktop monitors).
+$screen-large-min: $screen-medium-max + 1px;
+
+/// The design system maximal "large" screen size (wide desktop monitors).
+$screen-large-max: 1200px;
+
+/// The global `font-size` interpolation setting.
+/// All margins, paddings, typography and element sizes are depend on this.
+/// @type Map
+$font-size-interpolation: (
+        $screen-small-max: 14px,
+        $screen-medium-max: 16px,
+        $screen-large-max: 18px,
+);
+
+/// The [susy](https://www.oddbird.net/susy/) grid configuration `Map`
+/// for the "small" screens layout. Overrides the default `$susy` global variable.
+/// @type Map
+$susy-settings-screen-small: (
+        columns: susy-repeat(4),
+        gutters: 24px,
+);
+$susy: $susy-settings-screen-small;
+
+/// The [susy](https://www.oddbird.net/susy/) grid configuration `Map`
+/// for the "medium" screens layout.
+/// @type Map
+$susy-settings-screen-medium: (
+        columns: susy-repeat(8),
+        gutters: 32px,
+);
+
+/// The [susy](https://www.oddbird.net/susy/) grid configuration `Map`
+/// for the "large" screens layout.
+/// @type Map
+$susy-settings-screen-large: (
+        columns: susy-repeat(12),
+        gutters: 40px,
+);
+
+/// The height of navigation menu
+$navbar-height: 50px;
+
+/// The height of navigation menu border
+$navbar-border-height: 3px;
+
+/// The height of navigation menu with border
+$navbar-total-height: $navbar-height + $navbar-border-height;

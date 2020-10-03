@@ -1,0 +1,169 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.section-intro {
+  background-color: $black;
+  position: relative;
+  height: calc(100vh + #{$navbar-total-height});
+
+  .lines {
+    @extend %intro-lines
+  }
+
+  .title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .text {
+      @extend %heading-h1;
+
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: $light-gray;
+
+      .text__hello-name {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .name {
+          color: $bronze;
+          @extend %text-semi-bold
+        }
+      }
+    }
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: $blue-mirage;
+    border-bottom: $navbar-border-height solid $jungle-green;
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+      bottom: inherit;
+      z-index: 1;
+
+      animation: popDown 0.5s;
+    }
+
+    .desktop-nav-list {
+      display: flex;
+      align-items: center;
+
+      visibility: hidden;
+      pointer-events: none;
+      height: $navbar-height;
+
+
+      @include screen-medium-up {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .nav-item {
+        margin: 0 1rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .nav-item__link {
+          color: $light-gray;
+
+          text-transform: uppercase;
+          text-decoration: none;
+
+          transition: color .3s ease;
+
+          &:hover,
+          &.active {
+            color: $bronze;
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+
+      @include screen-medium-up {
+        display: none;
+      }
+    }
+
+    .mobile-navigation {
+      display: block;
+
+      @include screen-medium-up {
+        display: none;
+      }
+
+      position: absolute;
+      top: calc(100% + #{$navbar-border-height});
+      left: 0;
+      right: 0;
+      z-index: 1;
+
+      background-color: #333;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s linear;
+
+      &.active {
+        max-height: 60vh;
+      }
+
+      .mobile-nav-list {
+        padding: 1.5rem 1rem;
+
+        .nav-item {
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+
+          .nav-item__link {
+            @extend %text-larger;
+
+            color: $light-gray;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color .3s ease;
+
+            &:hover,
+            &.active {
+              color: $bronze;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes popDown {
+  0% {
+    transform: translateY(-100px);
+  }
+}

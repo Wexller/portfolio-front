@@ -1,0 +1,17 @@
+/// Calculates the definition of a line between the two points.
+/// @param {Map} $map - A sass `Map` of viewport widths and size value pairs.
+/// @return {Length} A linear equation as a calc() function
+/// @example
+///   font-size: linear-interpolation((320px: 18px, 768px: 26px));
+/// @author Jake Wilson <jake.e.wilson@gmail.com>
+@function linear-interpolation($map) {
+  $keys: map-keys($map);
+  $m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1))) / (nth($keys, 2) - nth($keys,1));
+  $b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+  $sign: "+";
+  @if ($b < 0) {
+    $sign: "-";
+    $b: abs($b);
+  }
+  @return calc(#{$m*100}vw #{$sign} #{$b});
+}

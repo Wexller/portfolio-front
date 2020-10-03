@@ -1,0 +1,104 @@
+@import "../colors";
+@import "../mixins";
+
+%heading-h1 {
+  font-size: 1.9rem;
+  line-height: 2.4rem;
+
+  @include screen-large-up {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+/// The h1-like heading placeholder for article page.
+%heading-h1-article {
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+
+  @include screen-medium-up {
+    font-size: 1.9rem;
+    line-height: 2.4rem;
+  }
+
+  @include screen-large-up {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+
+/// The h2-like heading placeholder.
+%heading-h2 {
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+
+  @include screen-large-up {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+/// The h3-like heading placeholder.
+%heading-h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+/// The h4-like heading placeholder.
+%heading-h4 {
+  @extend %text-default;
+}
+
+/// The h3-like heading placeholder for the decorative text.
+%heading-decorative-h3 {
+  @extend %text-decorative;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/// The h2-like heading placeholder for the decorative text.
+%heading-decorative-h2 {
+  @extend %text-decorative;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+}
+
+/// The h1-like heading placeholder for the decorative text.
+%heading-decorative-h1 {
+  @extend %text-decorative;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+/// The larger (18 dp) text placeholder.
+%text-larger {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+}
+
+/// The default `font-size` and `line-height` placeholder.
+%text-default {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/// The smaller (14 dp) text placeholder.
+%text-smaller {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+/// The semi-bold text placeholder.
+%text-semi-bold {
+  font-weight: 600;
+}
+
+/// The bold text placeholder.
+%text-bold {
+  font-weight: 700;
+}
+
+/// The decorative text placeholder.
+%text-decorative {
+  font-family: 'Raleway', Arial, sans-serif;
+}

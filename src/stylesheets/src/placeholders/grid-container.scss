@@ -1,0 +1,21 @@
+@import "../variables";
+@import "../mixins";
+
+/// Applies base styles for the flex-box grid container according to the design system.
+%grid-container {
+  max-width: $screen-large-max;
+  padding-left: susy-gutter();
+  padding-right: susy-gutter();
+
+  @include screen-medium-up {
+    padding-left: susy-gutter();
+    padding-right: susy-gutter();
+  }
+
+  @include screen-large-up {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: susy-gutter();
+    padding-right: susy-gutter();
+  }
+}

@@ -1,0 +1,9 @@
+@import "../mixins";
+@import "../variables";
+@import "../colors";
+
+.grid {
+  @extend %grid-container;
+  display: flex;
+  justify-content: space-between;
+}

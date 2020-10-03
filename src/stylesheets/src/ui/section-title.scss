@@ -1,0 +1,27 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.section-title {
+  @extend %heading-h2;
+  @extend %text-bold;
+
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  position: relative;
+
+  color: $blue-mirage;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 4px;
+
+    background-color: $blue-mirage;
+  }
+}

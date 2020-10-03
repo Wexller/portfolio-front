@@ -1,0 +1,92 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.modal {
+  @extend %full-block;
+
+  position: fixed;
+  z-index: 10;
+
+  pointer-events: none;
+  flex-direction: column;
+  overflow-y: auto;
+
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0;
+  transition: opacity .3s linear;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+
+    .modal-window {
+      transform: none;
+    }
+  }
+
+  .modal-window {
+    position: relative;
+    z-index: 1;
+
+    margin: auto;
+    background-color: #fff;
+    width: 700px;
+    max-width: 90vw;
+
+    transform: translateY(-200%);
+    transition: transform .3s linear;
+
+    .header {
+      .slider {
+        height: 400px;
+        max-height: 50vh;
+
+        background-color: #1b75bb;
+      }
+    }
+
+    .body {
+      padding: 2rem 2.5rem 1rem 1.5rem;
+
+      .title {
+        @extend %heading-h2;
+        @extend %text-bold;
+
+        color: #444;
+      }
+
+      .subtitle {
+        @extend %heading-h4;
+        @extend %text-semi-bold;
+
+        color: #c0c0c0;
+        text-transform: uppercase;
+      }
+
+      .separator {
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        margin: 1rem 0;
+      }
+
+      .description {
+        @extend %text-smaller;
+      }
+    }
+
+    .footer {
+      padding: 1rem 2.5rem 2rem 1.5rem;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .mdi-close {
+        @extend %heading-h2;
+
+        color: #c0c0c0;
+        cursor: pointer;
+      }
+    }
+  }
+}

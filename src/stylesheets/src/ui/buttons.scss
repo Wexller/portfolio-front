@@ -1,0 +1,82 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.base-button {
+  padding: .5rem 1rem;
+  color: $light-gray;
+  background-color: inherit;
+  border: 2px solid $light-gray;
+  cursor: pointer;
+
+  transition: .3s ease;
+  transition-property: background-color, border-color;
+
+  @extend %text-larger;
+
+  &:hover {
+    background-color: $jungle-green;
+    border-color: $jungle-green;
+  }
+
+  &.bronze {
+    color: $bronze;
+    border-color: $bronze;
+
+    &:hover {
+      background-color: $bronze;
+      border-color: $bronze;
+      color: $light-gray;
+    }
+  }
+}
+
+.button-more {
+  @extend %text-semi-bold;
+  @extend %text-larger;
+
+  position: relative;
+  padding-right: 3rem;
+
+  .mdi-arrow-right {
+    position: absolute;
+    top: 55%;
+    right: 1rem;
+    transform: translateY(-50%);
+
+    display: block;
+    &:before {
+      transition: transform .2s linear;
+    }
+  }
+
+  &:hover {
+    .mdi-arrow-right {
+      &:before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.button-open-site {
+  @extend %text-smaller;
+  @extend %text-semi-bold;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #fff;
+  background-color: $bronze;
+  border-color: $bronze;
+  border-width: 0;
+
+  transition: color .3s ease,
+  background-color .3s ease,
+  border-color .3s ease;
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: $bronze;
+  }
+}

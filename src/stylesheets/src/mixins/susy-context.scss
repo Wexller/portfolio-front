@@ -1,0 +1,41 @@
+@import "~susy/sass/susy-prefix";
+@import "../variables";
+
+@mixin susy-use($settings) {
+  // Parse and normalize any shorthand arguments
+  $settings: susy-compile($settings);
+
+  // Record the global settings and update the global variable with our new settings:
+  $global: $susy;
+  $susy: map-merge($susy, $settings) !global;
+
+  // any content inside this mixin will use the local settings:
+  @content;
+
+  // return the global variable to its initial value:
+  $susy: $global !global;
+}
+
+/// Creates the [susy](https://www.oddbird.net/susy/) grid isolated context for the "small"
+/// screen layout (`4` columns with `32px` gutter).
+@mixin susy-screen-small {
+  @include susy-use($susy-settings-screen-small) {
+    @content;
+  }
+}
+
+/// Creates the [susy](https://www.oddbird.net/susy/) grid isolated context for the "medium"
+/// screen layout (`8` columns with `32px` gutter).
+@mixin susy-screen-medium {
+  @include susy-use($susy-settings-screen-medium) {
+    @content;
+  }
+}
+
+/// Creates the [susy](https://www.oddbird.net/susy/) grid isolated context for the "medium"
+/// screen layout (`12` columns with `40px` gutter).
+@mixin susy-screen-large {
+  @include susy-use($susy-settings-screen-large) {
+    @content;
+  }
+}

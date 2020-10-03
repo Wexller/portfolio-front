@@ -1,0 +1,64 @@
+@import "../colors";
+@import "../placeholders/typography";
+
+.section-contact {
+  @extend %section-padding;
+  background-color: #252934;
+
+  .section-title {
+    color: $light-gray;
+
+    &:after {
+      background-color: $light-gray;
+    }
+  }
+
+  .form-info {
+    text-align: center;
+    color: $sandy-brown;
+    @extend %text-semi-bold;
+  }
+
+  .form-block {
+    justify-content: center;
+    padding: 1rem 0;
+
+    form {
+      flex: 0 0 susy-span(4 of 4 wide);
+
+      @include screen-medium-up {
+        flex: 0 0 susy-span(6 of 8);
+      }
+
+      @include screen-large-up {
+        flex: 0 0 susy-span(6 of 12);
+      }
+
+      .form-input {
+        width: 100%;
+        margin-bottom: 2px;
+
+        input, textarea {
+          width: 100%;
+          background-color: $blue-mirage;
+          padding: .6rem .9rem;
+          border: none;
+          color: #fff;
+
+          &::placeholder {
+            color: $light-gray;
+          }
+        }
+
+        textarea {
+          min-height: 150px;
+        }
+      }
+
+      .form-submit {
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
+  }
+}
