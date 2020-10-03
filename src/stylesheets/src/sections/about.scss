@@ -240,8 +240,8 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
         }
 
         &.linux-black {
-          color: #ffbc00;
           background-color: #000;
+          color: #ffbc00;
         }
 
         &.jquery-blue {
@@ -249,8 +249,8 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
         }
 
         &.php-blue {
-          color: #20222e;
           background-color: #7377ad;
+          color: #20222e;
         }
 
         &.bitrix-red {

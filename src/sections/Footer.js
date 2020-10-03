@@ -11,7 +11,7 @@ const Footer = () => {
         <a
           href="//github.com/wexller"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="social-item"
         >
           <span className="mdi mdi-github" />
@@ -20,7 +20,7 @@ const Footer = () => {
         <a
           href="//www.linkedin.com/in/maxim-davydov-0b1356183/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="social-item"
         >
           <span className="mdi mdi-linkedin" />
@@ -30,7 +30,12 @@ const Footer = () => {
           <span className="mdi mdi-email" />
         </a>
 
-        <a href="" className="social-item">
+        <a
+          href="//www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="social-item"
+        >
           <span className="mdi mdi-instagram" />
         </a>
       </div>
