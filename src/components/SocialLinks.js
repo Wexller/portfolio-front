@@ -31,7 +31,7 @@ const socialLinks = [
 const SocialLinks = () => {
   return (
     <div className="social-block">
-      {socialLinks.map((item, key) => {
+      {socialLinks.map((item, idx) => {
         const attributes = {
           ...(item.targetBlank && {
             target: "_blank",
@@ -40,7 +40,7 @@ const SocialLinks = () => {
         };
 
         return (
-          <a key={key} href={item.link} className="social-item" {...attributes}>
+          <a key={idx} href={item.link} className="social-item" {...attributes}>
             <span className={`mdi mdi-${item.mdiClass}`} />
           </a>
         );
