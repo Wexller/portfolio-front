@@ -2,6 +2,7 @@ import React from "react";
 import { Element } from "react-scroll";
 import Technologies from "../components/Technologies";
 import Advantages from "../components/Advantages";
+import image from "../images/HexagonPhoto.png";
 
 const About = () => {
   return (
@@ -13,10 +14,7 @@ const About = () => {
       <div className="grid about-description">
         <div className="about-introduction">
           <div className="about-introduction__photo">
-            <img
-              src="./assets/images/stub/HexagonPhoto.png"
-              alt="Maxim Davydov"
-            />
+            <img src={image} alt="Maxim Davydov" />
           </div>
 
           <div className="about-introduction__title">Кто этот парень?</div>
