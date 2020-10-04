@@ -50,7 +50,7 @@
 
       .form-input {
         width: 100%;
-        margin-bottom: 2px;
+        margin-bottom: .5rem;
 
         input, textarea {
           width: 100%;
@@ -67,6 +67,10 @@
         textarea {
           min-height: 150px;
         }
+      }
+
+      .invalid {
+        color: orangered;
       }
 
       .form-submit {
