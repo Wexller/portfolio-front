@@ -28,8 +28,18 @@
 
   .form-block {
     justify-content: center;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include screen-medium-up {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    @include screen-large-up {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
 
     form {
       flex-grow: 0;
