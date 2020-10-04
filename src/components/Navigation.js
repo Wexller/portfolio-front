@@ -29,29 +29,29 @@ const Navigation = ({ introRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    function handleScroll() {
+      const current = introRef.current;
+
+      if (
+        current &&
+        current["childBindings"] &&
+        current["childBindings"]["domNode"]
+      ) {
+        const { bottom } = current["childBindings"][
+          "domNode"
+        ].getBoundingClientRect();
+        const offset = 10;
+
+        setFixed(bottom - offset <= 0);
+      }
+    }
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", () => handleScroll);
     };
-  }, []);
-
-  const handleScroll = () => {
-    const current = introRef.current;
-
-    if (
-      current &&
-      current["childBindings"] &&
-      current["childBindings"]["domNode"]
-    ) {
-      const { bottom } = current["childBindings"][
-        "domNode"
-      ].getBoundingClientRect();
-      const offset = 10;
-
-      setFixed(bottom - offset <= 0);
-    }
-  };
+  }, [introRef]);
 
   function hamburgerClickHandler() {
     setIsMenuOpen((isMenuOpen) => !isMenuOpen);

@@ -93,6 +93,20 @@ const technologies = [
     textColor: "#20222e",
   },
   {
+    title: "MySQL",
+    mdiClass: "database",
+    bgColor: "#126e8d",
+    mdiColor: "#e59131",
+    textColor: "#e59131",
+  },
+  {
+    title: "PostgreSQL",
+    mdiClass: "database",
+    bgColor: "#336791",
+    mdiColor: "#000",
+    textColor: "#000",
+  },
+  {
     title: "Bitrix",
     mdiClass: "alpha-b-circle",
     bgColor: "#c7042c",
