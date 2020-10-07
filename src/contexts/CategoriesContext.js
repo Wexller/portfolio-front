@@ -1,14 +1,26 @@
 import React, { createContext, useContext, useState } from "react";
+import { useHttp } from "../hooks/http.hook";
 
-export const CategoryContext = createContext({});
-export const useCategory = () => useContext(CategoryContext);
+export const ProjectCategoryContext = createContext({});
+export const useProjectCategory = () => useContext(ProjectCategoryContext);
 
-export function CategoryProvider({ children }) {
+export function ProjectCategoryProvider({ children }) {
   const [category, setCategory] = useState("all");
+  const [projectDetailIsOpen, setProjectDetailIsOpen] = useState(false);
+  const [projectId, setProjectId] = useState(null);
 
   return (
-    <CategoryContext.Provider value={{ category, setCategory }}>
+    <ProjectCategoryContext.Provider
+      value={{
+        category,
+        setCategory,
+        projectDetailIsOpen,
+        setProjectDetailIsOpen,
+        projectId,
+        setProjectId,
+      }}
+    >
       {children}
-    </CategoryContext.Provider>
+    </ProjectCategoryContext.Provider>
   );
 }

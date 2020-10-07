@@ -3,6 +3,7 @@
 @import "./colors";
 $mdi-font-path: '~@mdi/font/fonts';
 @import "~@mdi/font/scss/materialdesignicons";
+@import "~react-slideshow-image/dist/styles.css";
 
 * {
   box-sizing: border-box;
@@ -23,6 +24,10 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #fff;
+
+  &.scroll-hidden {
+    overflow-y: hidden;
+  }
 }
 
 ol, ul {

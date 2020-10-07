@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useCategory } from "../contexts/CategoriesContext";
+import { useProjectCategory } from "../contexts/CategoriesContext";
 import { useHttp } from "../hooks/http.hook";
 
 const allCategories = {
@@ -8,7 +8,7 @@ const allCategories = {
 };
 
 const ProjectCategories = () => {
-  const { category, setCategory } = useCategory();
+  const { category, setCategory } = useProjectCategory();
   const { request } = useHttp();
   const [categoryList, setCategoryList] = useState([allCategories]);
 

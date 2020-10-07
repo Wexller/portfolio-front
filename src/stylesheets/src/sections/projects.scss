@@ -61,13 +61,13 @@
         flex-basis: susy-span(4 of 12 set-gutters 0);
       }
 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
       height: 300px;
-      // TODO: remove and change to image
-      background-color: rebeccapurple;
       position: relative;
-
       overflow: hidden;
-
       transition: opacity .2s linear;
 
       &.hidden {
@@ -95,7 +95,7 @@
         left: 0;
         right: 0;
 
-        background-color: $light-gray;
+        background-color: rgba(245,245,245, .9);
         opacity: 0;
 
         transition: opacity .3s ease;
