@@ -1,27 +1,25 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useCategory } from "../contexts/CategoriesContext";
+import { useHttp } from "../hooks/http.hook";
 
-const categories = [
-  {
-    name: "all",
-    title: "Все",
-  },
-  {
-    name: "Rails",
-    title: "Ruby/Rails",
-  },
-  {
-    name: "Bitrix",
-    title: "Bitrix",
-  },
-  {
-    name: "JavaScript",
-    title: "JavaScript",
-  },
-];
+const allCategories = {
+  name: "all",
+  title: "Все",
+};
 
 const ProjectCategories = () => {
   const { category, setCategory } = useCategory();
+  const { request } = useHttp();
+  const [categoryList, setCategoryList] = useState([allCategories]);
+
+  const fetchCategories = useCallback(async () => {
+    const response = await request("/api/category");
+    setCategoryList([allCategories, ...response]);
+  }, [request]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories]);
 
   function categoryClickHandler(name) {
     setCategory(name);
@@ -30,7 +28,7 @@ const ProjectCategories = () => {
   return (
     <div className="grid">
       <ul className="project-categories">
-        {categories.map((item, idx) => (
+        {categoryList.map((item, idx) => (
           <li
             className={`category-item${
               category === item.name ? " active" : ""

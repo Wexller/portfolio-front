@@ -28,7 +28,7 @@ const ProjectList = () => {
     <div className="grid project-list">
       {projects.map((item) => {
         if (category !== "all" && !item.categories.includes(category)) {
-          return;
+          return null;
         }
 
         return (
