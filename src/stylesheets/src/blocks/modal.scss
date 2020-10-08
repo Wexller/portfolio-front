@@ -14,9 +14,9 @@
   background-color: rgba(0, 0, 0, .5);
   opacity: 0;
   transition: opacity .3s linear;
+  display: flex;
 
   &.active {
-    display: flex;
     opacity: 1;
     pointer-events: auto;
 
@@ -34,7 +34,7 @@
     width: 700px;
     max-width: 90vw;
 
-    transform: translateY(-200%);
+    transform: scale(.1);
     transition: transform .3s linear;
 
     .header {

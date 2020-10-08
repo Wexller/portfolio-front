@@ -63,55 +63,53 @@ const ProjectDetail = () => {
     <>
       {loading && <Loader />}
 
-      {!loading && (
-        <div
-          className={`modal${projectDetailIsOpen && !loading ? " active" : ""}`}
-          onClick={modalClickHandler}
-          ref={modalRef}
-        >
-          <div className="modal-window">
-            <div className="header">
-              {projectDetail.images && (
-                <div className="slide-container">
-                  <Slide {...sliderOptions} ref={sliderRef}>
-                    {projectDetail.images.map((image, idx) => (
-                      <div
-                        className="slide"
-                        style={{ backgroundImage: `url(${image})` }}
-                        key={idx}
-                      />
-                    ))}
-                  </Slide>
-                </div>
-              )}
-            </div>
-            <div className="body">
-              <div className="title">{projectDetail.title}</div>
-              <div className="subtitle">{projectDetail["subtitle"]}</div>
-              <div className="separator" />
-              <div className="description">{projectDetail.text}</div>
-            </div>
-
-            <div className="footer">
-              {projectDetail.link && (
-                <a
-                  className="base-button button-open-site"
-                  href={projectDetail.link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <span className="mdi mdi-open-in-new" />
-                  &nbsp;Открыть сайт
-                </a>
-              )}
-
-              <div>
-                <span className="mdi mdi-close" onClick={closeModal} />
+      <div
+        className={`modal${projectDetailIsOpen && !loading ? " active" : ""}`}
+        onClick={modalClickHandler}
+        ref={modalRef}
+      >
+        <div className="modal-window">
+          <div className="header">
+            {projectDetail.images && (
+              <div className="slide-container">
+                <Slide {...sliderOptions} ref={sliderRef}>
+                  {projectDetail.images.map((image, idx) => (
+                    <div
+                      className="slide"
+                      style={{ backgroundImage: `url(${image})` }}
+                      key={idx}
+                    />
+                  ))}
+                </Slide>
               </div>
+            )}
+          </div>
+          <div className="body">
+            <div className="title">{projectDetail.title}</div>
+            <div className="subtitle">{projectDetail["subtitle"]}</div>
+            <div className="separator" />
+            <div className="description">{projectDetail.text}</div>
+          </div>
+
+          <div className="footer">
+            {projectDetail.link && (
+              <a
+                className="base-button button-open-site"
+                href={projectDetail.link}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <span className="mdi mdi-open-in-new" />
+                &nbsp;Открыть сайт
+              </a>
+            )}
+
+            <div>
+              <span className="mdi mdi-close" onClick={closeModal} />
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
