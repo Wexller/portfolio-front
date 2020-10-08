@@ -30,6 +30,10 @@ const ProjectDetail = () => {
       if (id) {
         const fetchedProject = await request(`/api/project/${id}`);
         setProjectDetail(fetchedProject);
+
+        if (sliderRef.current && sliderRef.current.goTo) {
+          sliderRef.current.goTo(0);
+        }
       }
     },
     [request]
@@ -103,6 +107,7 @@ const ProjectDetail = () => {
                 &nbsp;Открыть сайт
               </a>
             )}
+            {!projectDetail.link && <div />}
 
             <div>
               <span className="mdi mdi-close" onClick={closeModal} />

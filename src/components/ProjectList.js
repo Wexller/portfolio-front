@@ -55,7 +55,7 @@ const ProjectList = () => {
           <div
             className="project-item"
             key={item.id}
-            style={{ backgroundImage: `url(${item.previewImage})` }}
+            style={{ backgroundImage: `url(${item["previewImage"]})` }}
           >
             <div className="project-view">
               <div className="project-info">
