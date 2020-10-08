@@ -87,7 +87,7 @@ const ProjectDetail = () => {
             </div>
             <div className="body">
               <div className="title">{projectDetail.title}</div>
-              <div className="subtitle">{projectDetail['subtitle']}</div>
+              <div className="subtitle">{projectDetail["subtitle"]}</div>
               <div className="separator" />
               <div className="description">{projectDetail.text}</div>
             </div>
