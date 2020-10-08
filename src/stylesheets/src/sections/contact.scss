@@ -85,7 +85,30 @@
 
       .form-submit {
         margin-top: 5px;
-        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .submit-message {
+          @extend %text-semi-bold;
+
+          .success {
+            color: green;
+          }
+
+          .error {
+            color: red;
+          }
+        }
+
+        .submit-button-block {
+          display: flex;
+          align-items: center;
+
+          .loader {
+            margin-right: 1rem;
+          }
+        }
       }
     }
   }

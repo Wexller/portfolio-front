@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-import { useHttp } from "../hooks/http.hook";
 
 export const ProjectCategoryContext = createContext({});
 export const useProjectCategory = () => useContext(ProjectCategoryContext);

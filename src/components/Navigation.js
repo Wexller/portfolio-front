@@ -4,22 +4,18 @@ import NavigationList from "./NavigationList";
 const navList = [
   {
     title: "Главная",
-    to: "#",
     name: "intro",
   },
   {
     title: "Обо мне",
-    to: "#",
     name: "about",
   },
   {
     title: "Проекты",
-    to: "#",
     name: "projects",
   },
   {
     title: "Связаться",
-    to: "#",
     name: "contact",
   },
 ];

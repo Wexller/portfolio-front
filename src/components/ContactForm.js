@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import SimpleReactValidator from "simple-react-validator";
+import { useHttp } from "../hooks/http.hook";
 
 const initialFormState = {
   name: "",
@@ -10,15 +11,29 @@ const initialFormState = {
 const ContactForm = () => {
   const [formState, setFormState] = useState(initialFormState);
   const [, forceUpdate] = useState(null);
+  const [responseMessage, setResponseMessage] = useState("");
+  const [responseError, setResponseError] = useState("");
   const simpleValidator = useRef(
     new SimpleReactValidator({
       messages: {
         email: "Некорректный формат Email адреса",
         required: "Поле обязательно для заполнения",
-        alpha: "В поле должны присутствовать только буквы",
       },
     })
   );
+
+  const { loading, request } = useHttp();
+
+  const sendMessage = useCallback(async () => {
+    const response = await request("/api/feedback", "POST", { ...formState });
+
+    if (!response.errors) {
+      setResponseMessage(response.message);
+      setFormState(initialFormState);
+    } else {
+      setResponseError(response.message);
+    }
+  }, [request, formState]);
 
   function fieldChangeHandler(event) {
     setFormState({
@@ -29,15 +44,18 @@ const ContactForm = () => {
 
   function formSubmitHandler(event) {
     event.preventDefault();
+    setResponseMessage("");
+    setResponseError("");
 
     const formValid = simpleValidator.current.allValid();
     if (!formValid) {
       simpleValidator.current.showMessages();
       forceUpdate(1);
-      return;
+      return false;
     }
 
-    console.log(formState);
+    simpleValidator.current.hideMessages();
+    sendMessage();
   }
 
   return (
@@ -55,7 +73,7 @@ const ContactForm = () => {
             {simpleValidator.current.message(
               "name",
               formState.name,
-              "required|alpha"
+              "required"
             )}
           </label>
         </div>
@@ -80,16 +98,26 @@ const ContactForm = () => {
         <div className="form-input">
           <textarea
             name="message"
-            value={formState.text}
+            value={formState.message}
             onChange={fieldChangeHandler}
             placeholder="Ваше сообщение"
           />
         </div>
 
         <div className="form-input form-submit">
-          <button type="submit" className="base-button">
-            Отправить
-          </button>
+          <div className="submit-message">
+            <div className="success">{responseMessage}</div>
+            <div className="error">{responseError}</div>
+          </div>
+
+          <div className="submit-button-block">
+            {loading && <div className="loader" />}
+            {!loading && <div />}
+
+            <button type="submit" className="base-button" disabled={loading}>
+              Отправить
+            </button>
+          </div>
         </div>
       </form>
     </div>

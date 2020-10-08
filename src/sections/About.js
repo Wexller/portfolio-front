@@ -35,12 +35,7 @@ const About = () => {
             <span className="important">Full-Stack JavaScript</span>&nbsp;
             разработчика (React, Vue, NodeJS).
             <br />
-            <Link
-              to="contact"
-              class="contact-me"
-              smooth={true}
-              duration={SMOOTH_SCROLL_DURATION}
-            >
+            <Link to="contact" smooth={true} duration={SMOOTH_SCROLL_DURATION}>
               Свяжитесь со мной, если у вас есть предложение.
             </Link>
           </div>

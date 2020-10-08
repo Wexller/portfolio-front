@@ -25,20 +25,6 @@ const ProjectDetail = () => {
     nextArrow: <SliderNavArrow arrowDirection="right" sliderRef={sliderRef} />,
   };
 
-  useEffect(() => {
-    if (projectId) {
-      fetchProjectDetail(projectId);
-    }
-  }, [projectId]);
-
-  useEffect(() => {
-    if (projectDetailIsOpen) {
-      bodyRef.current.classList.add("scroll-hidden");
-    } else {
-      bodyRef.current.classList.remove("scroll-hidden");
-    }
-  }, [projectDetailIsOpen]);
-
   const fetchProjectDetail = useCallback(
     async (id) => {
       if (id) {
@@ -48,6 +34,20 @@ const ProjectDetail = () => {
     },
     [request]
   );
+
+  useEffect(() => {
+    if (projectId) {
+      fetchProjectDetail(projectId);
+    }
+  }, [projectId, fetchProjectDetail]);
+
+  useEffect(() => {
+    if (projectDetailIsOpen) {
+      bodyRef.current.classList.add("scroll-hidden");
+    } else {
+      bodyRef.current.classList.remove("scroll-hidden");
+    }
+  }, [projectDetailIsOpen]);
 
   function closeModal() {
     setProjectDetailIsOpen(false);
@@ -87,7 +87,7 @@ const ProjectDetail = () => {
             </div>
             <div className="body">
               <div className="title">{projectDetail.title}</div>
-              <div className="subtitle">{projectDetail.subtitle}</div>
+              <div className="subtitle">{projectDetail['subtitle']}</div>
               <div className="separator" />
               <div className="description">{projectDetail.text}</div>
             </div>
