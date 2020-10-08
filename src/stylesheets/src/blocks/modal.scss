@@ -47,6 +47,44 @@
           background-repeat: no-repeat;
           background-size: cover;
         }
+
+        .react-slideshow-container {
+          position: relative;
+
+          .nav-arrow {
+            position: absolute;
+            bottom: 0;
+            width: 3.4rem;
+            height: 2.8rem;
+            background-color: rgba(0,0,0, .4);
+            z-index: 1;
+
+            cursor: pointer;
+
+            &.left {
+              left: 0;
+
+              .mdi {
+                transform: translate(-50%, -50%) rotate(-90deg);
+              }
+            }
+
+            &.right {
+              right: 0;
+
+              .mdi {
+                transform: translate(-50%, -50%) rotate(90deg);
+              }
+            }
+
+            .mdi {
+              color: $light-gray;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+            }
+          }
+        }
       }
     }
 

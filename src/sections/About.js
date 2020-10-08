@@ -1,8 +1,9 @@
 import React from "react";
-import { Element } from "react-scroll";
+import { Link, Element } from "react-scroll";
 import Technologies from "../components/Technologies";
 import Advantages from "../components/Advantages";
 import image from "../images/HexagonPhoto.png";
+import { SMOOTH_SCROLL_DURATION } from "../constants";
 
 const About = () => {
   return (
@@ -34,7 +35,14 @@ const About = () => {
             <span className="important">Full-Stack JavaScript</span>&nbsp;
             разработчика (React, Vue, NodeJS).
             <br />
-            <a href="/">Свяжитесь со мной, если у вас есть предложение.</a>
+            <Link
+              to="contact"
+              class="contact-me"
+              smooth={true}
+              duration={SMOOTH_SCROLL_DURATION}
+            >
+              Свяжитесь со мной, если у вас есть предложение.
+            </Link>
           </div>
         </div>
         <div className="about-technologies">

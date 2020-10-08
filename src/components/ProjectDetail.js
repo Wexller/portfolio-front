@@ -3,6 +3,7 @@ import { useProjectCategory } from "../contexts/CategoriesContext";
 import { useHttp } from "../hooks/http.hook";
 import Loader from "./Loader";
 import { Slide } from "react-slideshow-image";
+import SliderNavArrow from "./SliderNavArrow";
 
 const ProjectDetail = () => {
   const {
@@ -14,7 +15,15 @@ const ProjectDetail = () => {
   const { loading, request } = useHttp();
   const modalRef = useRef(null);
   const bodyRef = useRef(document.querySelector("body"));
+  const sliderRef = useRef(null);
   const [projectDetail, setProjectDetail] = useState({});
+
+  const sliderOptions = {
+    autoplay: false,
+    transitionDuration: 300,
+    prevArrow: <SliderNavArrow arrowDirection="left" sliderRef={sliderRef} />,
+    nextArrow: <SliderNavArrow arrowDirection="right" sliderRef={sliderRef} />,
+  };
 
   useEffect(() => {
     if (projectId) {
@@ -64,7 +73,7 @@ const ProjectDetail = () => {
             <div className="header">
               {projectDetail.images && (
                 <div className="slide-container">
-                  <Slide autoplay={false} transitionDuration={300}>
+                  <Slide {...sliderOptions} ref={sliderRef}>
                     {projectDetail.images.map((image, idx) => (
                       <div
                         className="slide"

@@ -133,6 +133,7 @@ $hexagonWidth: calc(#{$hexagonHeight} * #{$rootOf3});
         a {
           color: #009ada;
           text-decoration: none;
+          cursor: pointer;
         }
       }
     }
