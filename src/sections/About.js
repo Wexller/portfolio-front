@@ -32,8 +32,8 @@ const About = () => {
             <span className="important">Bitrix</span> и&nbsp;
             <span className="important">Ruby on Rails</span>. В последнее время
             я стал тяготеть в сторону&nbsp;
-            <span className="important">Full-Stack JavaScript</span>&nbsp;
-            разработчика (React, Vue, NodeJS).
+            <span className="important">Full-Stack JavaScript</span>
+            &nbsp;разработчика (React, Vue, NodeJS).
             <br />
             <Link to="contact" smooth={true} duration={SMOOTH_SCROLL_DURATION}>
               Свяжитесь со мной, если у вас есть предложение.
