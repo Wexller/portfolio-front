@@ -26,9 +26,9 @@ const About = () => {
             <a href="//sinergo.ru" rel="noopener noreferrer" target="_blank">
               &nbsp;Синерго&nbsp;
             </a>
-            (Кемерово &mdash; Кузбасс) и переезжаю в Москву. Я занимаюсь
-            Web разработкой с начала 2019 года. У меня есть несколько
-            завершенных проектов, сделанных на&nbsp;
+            (Кемерово &mdash; Кузбасс) и переезжаю в Москву. Я занимаюсь Web
+            разработкой с начала 2019 года. У меня есть несколько завершенных
+            проектов, сделанных на&nbsp;
             <span className="important">Bitrix</span> и&nbsp;
             <span className="important">Ruby on Rails</span>. В последнее время
             я стал тяготеть в сторону&nbsp;
