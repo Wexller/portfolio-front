@@ -22,11 +22,11 @@ const About = () => {
 
           <div className="about-introduction__description">
             Я <span className="important">Full-Stack</span> разрабочик в
-            компании{" "}
+            компании
             <a href="//sinergo.ru" rel="noopener noreferrer" target="_blank">
-              Синерго&nbsp;
+              &nbsp;Синерго&nbsp;
             </a>
-            (Кемерово &mdash; Кузбасс) и хочу переехать в Москву. Я занимаюсь
+            (Кемерово &mdash; Кузбасс) и переезжаю в Москву. Я занимаюсь
             Web разработкой с начала 2019 года. У меня есть несколько
             завершенных проектов, сделанных на&nbsp;
             <span className="important">Bitrix</span> и&nbsp;
